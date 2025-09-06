@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useSocket from '../hooks/useSocket';
+import API from '../api';
 
 const HelperDashboard = () => {
    const socketRef = useSocket();

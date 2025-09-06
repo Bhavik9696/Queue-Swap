@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
+import API from '../api';
 
 const BookingPage = () => {
   const [form, setForm] = useState({
