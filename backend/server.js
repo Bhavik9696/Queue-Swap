@@ -8,7 +8,7 @@ const { Server } = require('socket.io');
 const authRoutes = require('./routes/auth');
 const bookingRoutes = require('./routes/bookings');
 const paymentRoutes = require('./routes/payments');
-
+const helperRoutes = require('./routes/helpers');
 
 const app=express();
 
@@ -26,6 +26,7 @@ app.get("/",(req,res)=>{
 app.use('/api/auth', authRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/payments', paymentRoutes);
+app.use('/api/helpers', helperRoutes);
 
 
 
