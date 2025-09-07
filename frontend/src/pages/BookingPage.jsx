@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import API from '../api';
 
@@ -12,11 +11,7 @@ const BookingPage = () => {
     eta: ''
   });
   const [creating, setCreating] = useState(false);
-  const [clientSecret, setClientSecret] = useState(null);
   const [bookingId, setBookingId] = useState(null);
-  const stripe = useStripe();
-  const elements = useElements();
-  const nav = useNavigate();
 
   useEffect(() => {
     // attempt to get browser location once
@@ -94,16 +89,6 @@ const BookingPage = () => {
 
         <button disabled={creating} type="submit" className="w-full bg-blue-600 text-white py-2 rounded">{creating ? 'Creating...' : 'Create Booking & Request Helpers'}</button>
       </form>
-
-      {clientSecret && bookingId && (
-        <div className="mt-6">
-          <h3 className="font-medium mb-2">Pay now</h3>
-          <div className="p-4 border rounded">
-            <CardElement options={{ hidePostalCode: true }} />
-            <button onClick={pay} className="mt-3 w-full bg-green-600 text-white py-2 rounded">Pay ₹{form.amount}</button>
-          </div>
-        </div>
-      )}
     </div>
 
 
