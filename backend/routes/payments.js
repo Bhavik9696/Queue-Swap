@@ -19,6 +19,8 @@ router.post('/create-payment-intent', auth, async (req, res) => {
       metadata: { bookingId: booking._id.toString() }
     });
 
+    
+
     res.json({ clientSecret: paymentIntent.client_secret });
   } catch (err) {
     res.status(500).json({ err: err.message });
